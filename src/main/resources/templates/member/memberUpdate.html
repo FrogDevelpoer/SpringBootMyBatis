@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<h3>회원 수정하기</h3>
+<form method="post">
+    <table border="1" th:object="${member}">
+        <tbody>
+        <tr>
+            <td>아이디</td>
+            <td>
+                <span th:text="*{id}"></span>
+
+                <input type="hidden" th:field="*{id}">
+            </td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td><input type="text" th:field="*{age}"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <select name="gender">
+                    <option value="남자" selected>남자</option>
+                    <option value="여자">여자</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button th:formaction="@{/member/update}" type="submit" class="btn btn-primary">수정</button>
+</form>
+</body>
+</html>

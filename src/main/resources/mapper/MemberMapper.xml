@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.mapper.MemberMapperXml">
+    <select id="SelectAll" resultType="Member">
+        select * from members
+    </select>
+
+    <sql id="myselect">
+        select * from members
+    </sql>
+
+    <select id="SelectOne" resultType="Member" parameterType="String">
+        <include refid="myselect" />
+        where id = #{id}
+    </select>
+
+    <insert id="Insert" parameterType="Member">
+        insert into members(id, name, age, gender)
+        values(#{id}, #{name}, #{age}, #{gender})
+    </insert>
+
+    <update id="Update" parameterType="Member">
+        update members set name=#{name}, age=#{age}, gender=#{gender}
+        where id=#{id}
+    </update>
+
+    <delete id="Delete" parameterType="String">
+        delete from members where id=#{id}
+    </delete>
+</mapper>

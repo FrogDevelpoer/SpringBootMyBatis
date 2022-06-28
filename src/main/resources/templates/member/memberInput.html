@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<h3>회원 등록하기</h3>
+<form method="post">
+    <table border="1">
+        <tbody>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td><input type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <select name="gender">
+                    <option value="남자" selected>남자</option>
+                    <option value="여자">여자</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button th:formaction="@{/member/insert}" type="submit" class="btn btn-primary">등록</button>
+</form>
+</body>
+</html>

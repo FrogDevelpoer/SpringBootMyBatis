@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border = "1">
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="member, status : ${list}">
+                <td th:text="${member.id}"></td>
+                <td>
+                    <a th:href="'/member/'+${member.id}" th:text="${member.name}"></a>
+                </td>
+                <td th:text="${member.age}"></td>
+                <td th:text="${member.gender}"></td>
+                <td>
+                    <a th:href="'/member/update/' + ${member.id}" th:text="수정"></a>
+                </td>
+                <td>
+                    <a th:href="'/member/delete/' + ${member.id}" th:text="삭제"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <a th:href="'/member/insert' " th:text="추가하기"></a>
+</body>
+</html>
